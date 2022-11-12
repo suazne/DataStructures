@@ -1,5 +1,7 @@
-//Suzanne Schouest CSC 2720 Lab 11
-package lab11;
+/* goal: check to see if a binary tree is a valid search tree
+*  method: use in order traversal (store output in a dynamic array) and check if 
+*  the array is in ascending order to confirm validity before notifying user
+*/
 import java.util.*;
 
 //Node class for tree nodes
@@ -99,10 +101,4 @@ public class BSTcheck {
  * methods to traverse through the array in-order, so we know that we are at linear
  * space complexity here. As the size of the input grows, the space required will 
  * increase linearly, just as time needed will linearly increase as well. 
- * TEST CASES: I put a few test cases in the code above. One of which, is in line 50.
- * If the arraylist is empty or of size 1, we can go ahead and return that it is 
- * sorted. Otherwise, we will iterate thru and check ourselves. Additionally I went 
- * ahead and printed out the arraylist representing the in-order traversal so we can
- * see the output alongside the notification of whether or not the code found that 
- * the tree is a valid BST or not.
  */
