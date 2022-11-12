@@ -1,5 +1,8 @@
-//Suzanne Schouest CSC 2720 Lab 7
-package lab7;
+/* goal: write my own LinkedList class, populate the list, print it, delete n-th node 
+ * from the end, and print again, making ONLY ONE PASS thru the list (except when printing)
+ * method: create Node class, create add() method, create deleteNode() method to delete
+ * n-th node from end, create print() method, then put it all together
+ */
 
 public class LinkedList {
      
