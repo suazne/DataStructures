@@ -1,8 +1,6 @@
-//Suzanne Schouest CSC 2720 Lab 5 (turned in a day late for 75% credit) oops!
-//this program adheres to O(1) space complexity with ONE dynamic array, and time complexity of O(nlog(n)) using QuickSort (avg/best case is O(nlog(n)))
-package lab5;
+//goal: de-duplicate an array using quicksort
 import java.util.ArrayList;
-public class lab5 {
+public class DeDuplicateArrayList {
 	static void deDuplicate(ArrayList<Integer> arr) {//return the new length of the arraylist to get rid of duplicates
 		int l = arr.size();//original array size for the for loop
 		int newL = 1;//initialize new size
@@ -19,7 +17,7 @@ public class lab5 {
 		//note that this method adheres to O(n) time complexity and o(1) space complexity with a non-nested for loop and one single dynamic Array
 	}
 	static int partition(ArrayList<Integer> arr, int low, int high)
-    {
+    	{
         int pivot = arr.get(high);//initializing pivot point
         int i = (low - 1);// index of the smaller element
         for (int j = low; j < high; j++)
@@ -40,7 +38,7 @@ public class lab5 {
  
         return i + 1;//return the partitioning index for our quickSort method
     }
-	static void quickSort(ArrayList<Integer> arr, int low, int high)
+    static void quickSort(ArrayList<Integer> arr, int low, int high)
     {
         if (low < high)//if entered low value is higher than high value,
         { 
@@ -50,7 +48,7 @@ public class lab5 {
             quickSort(arr, p + 1, high);//after partition position
         }
     }
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		ArrayList<Integer> arr = new ArrayList<Integer>();//initialize ArrayList arr and add initial values assigned by the Lab 4 instructions
 			arr.add(50);
 			arr.add(11); 
@@ -69,7 +67,7 @@ public class lab5 {
 		quickSort(arr, 0, n - 1);
 		deDuplicate(arr);//get new length for array after having been sorted
 		for (int i = 0; i < arr.size(); i++) {//print out our sorted array with removed duplicates
-            System.out.print(arr.get(i) + " ");
+            		System.out.print(arr.get(i) + " ");
 		}
 		}
 		}	
