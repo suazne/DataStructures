@@ -1,0 +1,76 @@
+//Suzanne Schouest CSC 2720 Lab 5 (turned in a day late for 75% credit) oops!
+//this program adheres to O(1) space complexity with ONE dynamic array, and time complexity of O(nlog(n)) using QuickSort (avg/best case is O(nlog(n)))
+package lab5;
+import java.util.ArrayList;
+public class lab5 {
+	static void deDuplicate(ArrayList<Integer> arr) {//return the new length of the arraylist to get rid of duplicates
+		int l = arr.size();//original array size for the for loop
+		int newL = 1;//initialize new size
+		int p = 0;//pointer index
+		for (int i = 0; i < l - 1; i++) {//cycles through each index in the arrayList
+			if (arr.get(i) != arr.get(i + 1)) {//if the two indices next to each other do NOT have equal values
+				newL++;//size for output array increases by 1
+				p++;//pointer index increases by 1
+				arr.set(p, arr.get(i + 1));//arrayList value at pointer index becomes the arr.get(i + 1) value so we ensure the values at the beginning of the array are unique
+			}
+		}
+		if (l > newL)//if the arrayList's size is greater than its new size,
+		    arr.subList(newL, l).clear();//clear the extra spaces at the end of the arrayList between the index of the new size and it's old size
+		//note that this method adheres to O(n) time complexity and o(1) space complexity with a non-nested for loop and one single dynamic Array
+	}
+	static int partition(ArrayList<Integer> arr, int low, int high)
+    {
+        int pivot = arr.get(high);//initializing pivot point
+        int i = (low - 1);// index of the smaller element
+        for (int j = low; j < high; j++)
+        {
+            if (arr.get(j) <= pivot)// If current element is smaller than or equal to pivot
+            {
+                i++;//index i increases for assignment
+                //swap arr.get(i]) and arr.get(j) using a temp value
+                int temp = arr.get(i);
+                arr.set(i, arr.get(j));
+                arr.set(j, temp);
+            }
+        }
+        // swap arr.get(i+1) and arr.get(high) using temp value
+        int temp = arr.get(i + 1);
+        arr.set(i + 1, arr.get(high));
+        arr.set(high,  temp);
+ 
+        return i + 1;//return the partitioning index for our quickSort method
+    }
+	static void quickSort(ArrayList<Integer> arr, int low, int high)
+    {
+        if (low < high)//if entered low value is higher than high value,
+        { 
+            int p = partition(arr, low, high);//initialize p, the partitioning index; arr.get(p) is now in the right position
+            //sort elements recursively 
+            quickSort(arr, low, p - 1);//before partition
+            quickSort(arr, p + 1, high);//after partition position
+        }
+    }
+	public static void main(String[] args) {
+		ArrayList<Integer> arr = new ArrayList<Integer>();//initialize ArrayList arr and add initial values assigned by the Lab 4 instructions
+			arr.add(50);
+			arr.add(11); 
+			arr.add(33);
+			arr.add(21);
+			arr.add(40); 
+			arr.add(50); 
+			arr.add(40);
+			arr.add(40);
+			arr.add(21);
+		int n = arr.size();//variable n is the original input array size
+		if (n <= 1) {//JUST IN CASE the input array were of size 0 or 1, we would not do any of the work in the lines below
+			System.out.println("Sorry, your input Array is either too short to be sorted, or doesn't have any elements at all.\nPlease enter an array with 2 or more elements.");
+		}//notification to the user that array is empty or too short
+		else {
+		quickSort(arr, 0, n - 1);
+		deDuplicate(arr);//get new length for array after having been sorted
+		for (int i = 0; i < arr.size(); i++) {//print out our sorted array with removed duplicates
+            System.out.print(arr.get(i) + " ");
+		}
+		}
+		}	
+}
