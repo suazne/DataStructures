@@ -1,5 +1,9 @@
-//Suzanne Schouest Lab 9 CSC 2720
-package lab9;
+/* goal: design a queue with O(1) lookup time of the max element, 
+ * where the user can input and take out items from the queue
+ * method: use two queues--one holding ordered maximum values, and
+ * one holding all values--and keep track of the max value in the 
+ * maximum queue, returning it when asked by the user.
+ */
 import java.util.*;
 import java.util.LinkedList;
 public class Dequeue{
