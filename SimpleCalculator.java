@@ -1,7 +1,10 @@
-//Suzanne Schouest CSC 2720 Lab 8
-package lab8;
+/* goal: without using library funtions, write a postfix calculator that adds and subtracts 
+ * single digit numbers.
+ * method: use a stack to keep track of operands, and once we reach an operator, execute the 
+ * operator's function with the two preceding operands.
+ */
 import java.util.*;
-public class calculator {
+public class SimpleCalculator {
 	static boolean isDigit(char n) {//local method to determine if our char is a digit
 		switch (n) {
 			case '0':
