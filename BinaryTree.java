@@ -1,5 +1,6 @@
-//Suzanne Schouest CSC 2720 Lab 10
-package lab10;
+/* goal: print the nodes in a binary tree in level order
+ * method: using a queue, add and remove node values, printing upon removal
+ */
 import java.util.LinkedList;
 import java.util.Queue;
 //Node class for tree nodes
@@ -60,10 +61,4 @@ class BinaryTree {
 }
 /* TIME COMPLEXITY: O(n) we loop thru the number of nodes in the tree
  * SPACE COMPLEXITY: O(n) space complexity increases linearly as we add more nodes
- * TEST CASES: I made sure to avoid errors involving an empty queue in the
- * printLevelOrder method with an if block in line 24 (avoids inserting a null value
- * into the queue, and also avoids us doing level order traversal for an empty tree) 
- * as well as a base case in the while loop in line 30 (if the queue is empty, we 
- * will no longer perform any functions like .remove(), which would cause an error. 
- * Alternatively we could use .poll(), which would return a null value from an empty
- * queue).*/
+ */
