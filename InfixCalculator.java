@@ -1,8 +1,12 @@
-//Suzanne Schouest CSC 2720 Assignment2 (infix calculator)
-package assignment2;
+/* goal: create an infix calculator with an operator and operand stack
+ * method: create methods to change string input to an a string array, check if an element is numeric,
+ * check prpecedence of operators (order of operations), execute math functions (+,-,*,/), and use all
+ * these methods in a larger method to execute the infix expression, returning the answer as the last
+ * operand in the operand stack.
+ */
 import java.util.Stack;
 
-public class Calculator {
+public class InfixCalculator {
 //methods
 	//local method to determine if our char is a number (operand)
 	static boolean isNumeric(String input) {
@@ -94,8 +98,4 @@ public class Calculator {
  * loop iterates thru an array with the number of elements in the equation)
  * SPACE COMPLEXITY: O(n) because the number of data structures does not increase as the input increases. Because of this, 
  * space complexity is linear.
- * PLEASE SEE COMMENTS IN CODE FOR TEST CASES. I made sure that no method could return an undefined value (line 37). One thing I would
- * add would be to assess letters and other characters (anything that isn't a number or an operator) by returning an error notifying the 
- * user that they have an invalid character in their input. In this code, I simply ignored all other characters except operators and
- * integers.
  */
